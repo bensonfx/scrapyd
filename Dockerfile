@@ -1,14 +1,15 @@
 FROM ddvv/python3.6.2:latest
 # Based on https://hub.docker.com/r/harrisbaird/scrapyd/
 
-RUN echo "https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.6/main/" > /etc/apk/repositories
+# use in CN
+#RUN echo "https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.6/main/" > /etc/apk/repositories
 
 WORKDIR /scrapyd
 
 COPY /data/requirements.txt .
 
-# Set pypi mirror
-COPY /data/pip.conf /.pip/pip.conf
+# Set pypi mirror, use in CN
+# COPY /data/pip.conf /root/.pip/pip.conf
 
 # Set default scrapyd.conf
 COPY /data/scrapyd.conf /etc/scrapyd/
