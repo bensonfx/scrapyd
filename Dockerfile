@@ -1,4 +1,4 @@
-FROM ddvv/python:latest
+FROM ddvv/python3.6.2:latest
 # Based on https://hub.docker.com/r/harrisbaird/scrapyd/
 
 RUN echo "https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.6/main/" > /etc/apk/repositories
