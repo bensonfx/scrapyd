@@ -1,0 +1,19 @@
+scrapy
+scrapyd
+scrapyd-client
+
+# Useful libraries
+w3lib
+scrapylib
+scrapyjs
+jmespath
+
+# user libraries
+asyncio
+asyncpg
+pycryptodome
+PyExecJs
+selenium
+pycrypto
+redis
+requests
