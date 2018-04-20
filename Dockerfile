@@ -20,8 +20,8 @@ ENV BUILD_PACKAGES build-base libxslt-dev libxml2-dev libffi-dev openssl-dev git
 RUN apk update && apk upgrade && \
     apk add tzdata --no-cache  && \
     ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-    echo "Asia/Shanghai" > /etc/timezoneapk && \
-    add --no-cache $RUNTIME_PACKAGES && \
+    echo "Asia/Shanghai" > /etc/timezone && \
+    apk add --no-cache $RUNTIME_PACKAGES && \
     update-ca-certificates
 
 RUN apk --no-cache add --virtual build-dependencies && \
