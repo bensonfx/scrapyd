@@ -22,7 +22,6 @@ RUN apk update && apk upgrade && apk add --no-cache $RUNTIME_PACKAGES && \
 
 RUN apk --no-cache add --virtual build-dependencies $BUILD_PACKAGES && \
     python -m ensurepip && \
-    rm -r /usr/lib/python*/ensurepip && \
     pip install --upgrade pip setuptools && \
     pip --no-cache-dir install -r requirements.txt && \
     apk del build-dependencies
