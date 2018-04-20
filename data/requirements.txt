@@ -16,4 +16,5 @@ PyExecJs
 selenium
 pycrypto
 redis
+pykafka
 requests

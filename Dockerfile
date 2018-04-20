@@ -5,7 +5,6 @@ RUN echo "https://mirrors.tuna.tsinghua.edu.cn/alpine/v3.6/main/" > /etc/apk/rep
 
 WORKDIR /scrapyd
 
-# Copy requirements.txt
 COPY /data/requirements.txt .
 
 # Set pypi mirror
@@ -20,9 +19,9 @@ ENV BUILD_PACKAGES build-base libxslt-dev libxml2-dev libffi-dev openssl-dev git
 RUN apk update && apk upgrade && apk add --no-cache $RUNTIME_PACKAGES && \
     update-ca-certificates
 
-RUN apk --no-cache add --virtual build-dependencies $BUILD_PACKAGES && \
+RUN apk --no-cache add --virtual build-dependencies && \
+    apk --no-cache add $BUILD_PACKAGES && \
     python -m ensurepip && \
-    rm -r /usr/lib/python*/ensurepip && \
     pip install --upgrade pip setuptools && \
     pip --no-cache-dir install -r requirements.txt && \
     apk del build-dependencies
